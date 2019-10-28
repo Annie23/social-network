@@ -24,14 +24,15 @@
                                 @if($user->is_not_friend->pivot->accepted === 0)
                                     <a type="button"
                                        class="btn btn-default">Already Sent</a>
-                                @else
-                                    <a href="{{ route('friends.add', [$user->email]) }}" type="button"
-                                       class="btn btn-primary"
-                                       onclick=" $(this).text('Request sent')">Add as friend</a>
-                                @endif
                             @endif
-                                <example-component :user="{{ auth()->user() }}"
-                                                   :user2="{{ $user }}"></example-component>
+                            @else
+                                <a href="{{ route('friends.add', [$user->email]) }}" type="button"
+                                   class="btn btn-primary"
+                                   onclick=" $(this).text('Request sent')">Add as friend</a>
+                            @endif
+
+                            <example-component :user="{{ auth()->user() }}"
+                                               :user2="{{ $user }}"></example-component>
                         @endauth
                     </div>
                 @endforeach

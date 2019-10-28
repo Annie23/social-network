@@ -47043,10 +47043,19 @@ var render = function() {
             [
               _c("span", { staticClass: "glyphicon glyphicon-comment" }, [
                 _vm._v(
-                  "\n                             " +
+                  "\n                         " +
                     _vm._s(_vm.aUser.status) +
-                    "\n"
-                )
+                    "\n                        "
+                ),
+                _vm.aUser.status === "offline"
+                  ? _c("span", [
+                      _c("img", { attrs: { src: "icons/status-offline.png" } })
+                    ])
+                  : _vm.aUser.status === "online"
+                  ? _c("span", [
+                      _c("img", { attrs: { src: "icons/status-online.png" } })
+                    ])
+                  : _vm._e()
               ])
             ]
           )

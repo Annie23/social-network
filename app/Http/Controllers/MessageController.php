@@ -15,7 +15,6 @@ class MessageController extends Controller
     {
         $userId = Auth::id();
 
-        $authUserMessages = User::with(['sentMessage', 'receivedMessage'])->find($userId);
         /*todo*/
         return view('message', compact('messages'));
     }

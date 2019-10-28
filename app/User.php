@@ -84,9 +84,10 @@ class User extends Authenticatable
 
     public function addFriend(User $user)
     {
-        $this->friendsOfMine()->update(
+        return Friend::create(
             [
-                'user_id' => $user->id,
+                'user_id' => Auth::id(),
+                'friend_id' =>  $user->id,
                 'accepted' => 0
             ]
         );
